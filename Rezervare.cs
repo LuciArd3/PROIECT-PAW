@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace PROIECT_PAW
 {
     [Serializable]
-    internal class Rezervare :ICloneable , IComparable
+    public class Rezervare :ICloneable , IComparable
     {
         private int id;
         private Client client;

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
 using System.Diagnostics.Eventing.Reader;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace PROIECT_PAW
 {
@@ -18,8 +20,37 @@ namespace PROIECT_PAW
         public Form1()
         {
             InitializeComponent();
+            this.KeyDown += new KeyEventHandler(Form1_KeyDown);
         }
-
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                tbNumeClient.Clear();
+                tbCNP.Clear();
+                tbTelefon.Clear();
+                tbNumarCamera.Clear();
+                tbPretCamera.Clear();
+                tbIdRezervare.Clear();
+                cbSex.Text = "";
+                cbTipCamera.Text = "";
+                cbEtajCamera.Text = "";
+                cbStatusRezervare.Text = "";
+                dateTimePickerCheckIn.Value = DateTime.Now;
+                dateTimePickerCheckOut.Value = DateTime.Now;
+                tbSedereDurata.Clear();
+                tbCostTotal.Clear();
+            }
+            if (e.KeyCode == Keys.F1)
+            {
+                Form2 f2 = new Form2(listaRezervari);
+                f2.Show();
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAdaugaRezervare_Click(sender, e);
+            }
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -171,7 +202,8 @@ namespace PROIECT_PAW
 
         private void afisareRezervari_Click(object sender, EventArgs e)
         {
-
+            Form2 f2 = new Form2(listaRezervari);
+            f2.Show();
         }
     }
 }

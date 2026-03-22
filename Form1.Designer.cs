@@ -74,7 +74,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nume";
+            this.label1.Text = "&Nume";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -84,7 +84,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 31);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Sex";
+            this.label2.Text = "&Sex";
             // 
             // label3
             // 
@@ -93,7 +93,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 31);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Telefon";
+            this.label3.Text = "&Telefon";
             // 
             // label4
             // 
@@ -102,7 +102,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 31);
             this.label4.TabIndex = 3;
-            this.label4.Text = "CNP";
+            this.label4.Text = "&CNP";
             // 
             // tbNumeClient
             // 
@@ -183,7 +183,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 31);
             this.label6.TabIndex = 15;
-            this.label6.Text = "Etaj";
+            this.label6.Text = "&Etaj";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label8
@@ -193,7 +193,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 31);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Pret(noapte)";
+            this.label8.Text = "&Pret(noapte)";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
@@ -203,7 +203,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(36, 31);
             this.label9.TabIndex = 13;
-            this.label9.Text = "Tip";
+            this.label9.Text = "&Tip";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
@@ -213,7 +213,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 31);
             this.label10.TabIndex = 12;
-            this.label10.Text = "Numar";
+            this.label10.Text = "Numa&r";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // tbNumarCamera
@@ -249,7 +249,7 @@
             // 
             this.cbEtajCamera.FormattingEnabled = true;
             this.cbEtajCamera.Items.AddRange(new object[] {
-            "Parter",
+            "0",
             "1",
             "2",
             "3"});
@@ -277,7 +277,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(75, 31);
             this.label13.TabIndex = 26;
-            this.label13.Text = "Check-In";
+            this.label13.Text = "Check-&In";
             // 
             // label14
             // 
@@ -286,7 +286,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(53, 31);
             this.label14.TabIndex = 25;
-            this.label14.Text = "Status";
+            this.label14.Text = "&Status";
             // 
             // label15
             // 
@@ -295,7 +295,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(31, 31);
             this.label15.TabIndex = 24;
-            this.label15.Text = "ID";
+            this.label15.Text = "I&D";
             // 
             // tbIdRezervare
             // 
@@ -324,7 +324,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 31);
             this.label11.TabIndex = 29;
-            this.label11.Text = "Check-Out";
+            this.label11.Text = "Check-&Out";
             // 
             // dateTimePickerCheckIn
             // 

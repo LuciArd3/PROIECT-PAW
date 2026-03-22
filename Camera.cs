@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace PROIECT_PAW
 {
-    internal class Camera : ICloneable
+    [Serializable]
+    public class Camera : ICloneable
     {
         private int numar;
         private string tip;

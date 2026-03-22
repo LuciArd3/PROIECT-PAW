@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PROIECT_PAW
 {
-    internal class Client : ICloneable
+    [Serializable]
+    public class Client : ICloneable
     {
         private string nume;
         private char sex;
