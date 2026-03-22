@@ -28,7 +28,6 @@ namespace PROIECT_PAW
             if (e.KeyCode == Keys.Escape)
             {
                 tbNumeClient.Clear();
-                tbCNP.Clear();
                 tbTelefon.Clear();
                 tbNumarCamera.Clear();
                 tbPretCamera.Clear();
@@ -81,12 +80,6 @@ namespace PROIECT_PAW
             if (!tbTelefon.Text.All(char.IsDigit))
                 errorProvider1.SetError(tbTelefon, "Numarul de telefon invalid!");
             else
-                if (tbCNP.Text == "" || tbCNP.Text.Length != 13)
-                errorProvider1.SetError(tbCNP, "Introduceti CNP! Acesta trebuie sa aiba 13 cifre");
-            else
-            if (!tbCNP.Text.All(char.IsDigit))
-                errorProvider1.SetError(tbTelefon, "CNP invalid!");
-            else
                 if (tbNumarCamera.Text == "")
                 errorProvider1.SetError(tbNumarCamera, "Introduceti numarul camerei!");
             else
@@ -112,8 +105,8 @@ namespace PROIECT_PAW
                     string nume = tbNumeClient.Text;
                     char sex = Convert.ToChar(cbSex.Text);
                     string telefon = tbTelefon.Text;
-                    string cnp = tbCNP.Text;
-                    Client client = new Client(nume, sex, telefon, cnp);
+                
+                    Client client = new Client(nume, sex, telefon);
 
                     int numar = Convert.ToInt32(tbNumarCamera.Text);
                     string tip = cbTipCamera.Text;
@@ -140,12 +133,14 @@ namespace PROIECT_PAW
 
 
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     MessageBox.Show(ex.Message);
                 }
-                finally {
+                finally
+                {
                     tbNumeClient.Clear();
-                    tbCNP.Clear();
+              
                     tbTelefon.Clear();
                     tbNumarCamera.Clear();
                     tbPretCamera.Clear();
