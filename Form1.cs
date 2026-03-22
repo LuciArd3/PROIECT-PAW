@@ -21,6 +21,7 @@ namespace PROIECT_PAW
         {
             InitializeComponent();
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
+            tbPretCamera.KeyPress += tbPret_KeyPress; 
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -77,8 +78,14 @@ namespace PROIECT_PAW
                 if (tbTelefon.Text == "")
                 errorProvider1.SetError(tbTelefon, "Introduceti nr. de telefon !");
             else
-                if (tbCNP.Text == "")
-                errorProvider1.SetError(tbCNP, "Introduceti CNP!");
+            if (!tbTelefon.Text.All(char.IsDigit))
+                errorProvider1.SetError(tbTelefon, "Numarul de telefon invalid!");
+            else
+                if (tbCNP.Text == "" || tbCNP.Text.Length != 13)
+                errorProvider1.SetError(tbCNP, "Introduceti CNP! Acesta trebuie sa aiba 13 cifre");
+            else
+            if (!tbCNP.Text.All(char.IsDigit))
+                errorProvider1.SetError(tbTelefon, "CNP invalid!");
             else
                 if (tbNumarCamera.Text == "")
                 errorProvider1.SetError(tbNumarCamera, "Introduceti numarul camerei!");
@@ -106,13 +113,13 @@ namespace PROIECT_PAW
                     char sex = Convert.ToChar(cbSex.Text);
                     string telefon = tbTelefon.Text;
                     string cnp = tbCNP.Text;
-                    Client client =   new Client(nume , sex , telefon , cnp);
+                    Client client = new Client(nume, sex, telefon, cnp);
 
                     int numar = Convert.ToInt32(tbNumarCamera.Text);
                     string tip = cbTipCamera.Text;
                     float pretNoapte = (float)Convert.ToDouble(tbPretCamera.Text);
                     int etaj = Convert.ToInt32(cbEtajCamera.Text);
-                    Camera camera = new Camera(numar,tip,pretNoapte,etaj);
+                    Camera camera = new Camera(numar, tip, pretNoapte, etaj);
 
                     int id = Convert.ToInt32(tbIdRezervare.Text);
                     DateTime checkIn = dateTimePickerCheckIn.Value;
@@ -122,9 +129,9 @@ namespace PROIECT_PAW
                     if (checkOut < checkIn)
                         throw new Exception("Data de check-out are loc dupa data de check-in!");
 
-                    
 
-                    Rezervare rezervare= new Rezervare(id , client , camera , checkIn , checkOut , status);
+
+                    Rezervare rezervare = new Rezervare(id, client, camera, checkIn, checkOut, status);
                     tbSedereDurata.Text = rezervare.noptiSedere().ToString();
                     tbCostTotal.Text = rezervare.costTotal().ToString();
 
@@ -133,7 +140,7 @@ namespace PROIECT_PAW
 
 
                 }
-                catch(Exception ex) { 
+                catch (Exception ex) {
                     MessageBox.Show(ex.Message);
                 }
                 finally {
@@ -147,7 +154,7 @@ namespace PROIECT_PAW
                     cbTipCamera.Text = "";
                     cbEtajCamera.Text = "";
                     cbStatusRezervare.Text = "";
-                     dateTimePickerCheckIn.Value = DateTime.Now;
+                    dateTimePickerCheckIn.Value = DateTime.Now;
                     dateTimePickerCheckOut.Value = DateTime.Now;
                 }
             }
@@ -204,6 +211,23 @@ namespace PROIECT_PAW
         {
             Form2 f2 = new Form2(listaRezervari);
             f2.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void iesireToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Sigur doriți să ieșiți?", "Confirmare",
+        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                Application.Exit();
+        }
+
+        private void fisierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

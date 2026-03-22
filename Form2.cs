@@ -20,6 +20,8 @@ namespace PROIECT_PAW
         {
             InitializeComponent();
             listaRezervari = lista;
+            serializareToolStripMenuItem.Click += serializareToolStripMenuItem_Click;
+            deserializareToolStripMenuItem.Click += deserializareToolStripMenuItem_Click;
         }
 
         private void adaugaInListView(Rezervare r)
@@ -52,21 +54,6 @@ namespace PROIECT_PAW
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-   
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            stergeSelectate();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            listaRezervari.Sort(); 
-            listView1.Items.Clear();
-            foreach (Rezervare r in listaRezervari)
-                adaugaInListView(r);
         }
 
         private void serializareToolStripMenuItem_Click(object sender, EventArgs e)

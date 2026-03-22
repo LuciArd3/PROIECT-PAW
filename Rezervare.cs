@@ -62,10 +62,10 @@ namespace PROIECT_PAW
         {
             Rezervare clona = (Rezervare) this.MemberwiseClone();
             clona.id = id;
-            clona.client = client;
-            clona.camera = camera;
-            clona.dataCheckIn= dataCheckIn;
-            clona.dataCheckOut= dataCheckOut;
+            clona.client = (Client)client.Clone(); 
+            clona.camera = (Camera)camera.Clone();  
+            clona.dataCheckIn = dataCheckIn;
+            clona.dataCheckOut = dataCheckOut;
             clona.status = status;
             return clona;
         }
