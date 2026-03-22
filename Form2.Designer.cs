@@ -174,7 +174,7 @@
             this.Font = new System.Drawing.Font("Microsoft Uighur", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "Form2";
-            this.Text = "e";
+            this.Text = "Detalii";
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
