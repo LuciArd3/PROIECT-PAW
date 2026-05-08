@@ -16,7 +16,7 @@ namespace PROIECT_PAW
 {
     public partial class Form1 : Form
     {
-        List<Rezervare> listaRezervari = new List<Rezervare>();
+        public List<Rezervare> listaRezervari = new List<Rezervare>();
         public Form1()
         {
             InitializeComponent();
@@ -52,11 +52,6 @@ namespace PROIECT_PAW
             }
         }
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
@@ -155,13 +150,6 @@ namespace PROIECT_PAW
             }
         }
 
-        private void tbCifre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
 
         private void tbPret_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -208,19 +196,19 @@ namespace PROIECT_PAW
             f2.Show();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void iesireToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Sigur doriți să ieșiți?", "Confirmare",
+            if (MessageBox.Show("Sigur doriti să iesiti?", "Confirmare",
         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Application.Exit();
         }
 
         private void fisierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }

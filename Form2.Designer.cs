@@ -140,10 +140,10 @@
             // 
             this.btnAfisareLista.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnAfisareLista.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnAfisareLista.Location = new System.Drawing.Point(369, 489);
+            this.btnAfisareLista.Location = new System.Drawing.Point(61, 480);
             this.btnAfisareLista.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAfisareLista.Name = "btnAfisareLista";
-            this.btnAfisareLista.Size = new System.Drawing.Size(186, 110);
+            this.btnAfisareLista.Size = new System.Drawing.Size(344, 110);
             this.btnAfisareLista.TabIndex = 1;
             this.btnAfisareLista.Text = "Afisare";
             this.btnAfisareLista.UseVisualStyleBackColor = false;
@@ -153,10 +153,10 @@
             // 
             this.btnSterge.BackColor = System.Drawing.Color.DarkRed;
             this.btnSterge.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnSterge.Location = new System.Drawing.Point(697, 489);
+            this.btnSterge.Location = new System.Drawing.Point(520, 480);
             this.btnSterge.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSterge.Name = "btnSterge";
-            this.btnSterge.Size = new System.Drawing.Size(187, 110);
+            this.btnSterge.Size = new System.Drawing.Size(334, 110);
             this.btnSterge.TabIndex = 2;
             this.btnSterge.Text = "Sterge";
             this.btnSterge.UseVisualStyleBackColor = false;

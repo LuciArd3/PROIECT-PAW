@@ -108,7 +108,7 @@
             // 
             this.btnAdaugaRezervare.BackColor = System.Drawing.Color.DarkRed;
             this.btnAdaugaRezervare.ForeColor = System.Drawing.Color.OldLace;
-            this.btnAdaugaRezervare.Location = new System.Drawing.Point(24, 415);
+            this.btnAdaugaRezervare.Location = new System.Drawing.Point(344, 400);
             this.btnAdaugaRezervare.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.btnAdaugaRezervare.Name = "btnAdaugaRezervare";
             this.btnAdaugaRezervare.Size = new System.Drawing.Size(211, 95);
@@ -331,7 +331,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(618, 364);
+            this.label16.Location = new System.Drawing.Point(618, 400);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(105, 31);
             this.label16.TabIndex = 33;
@@ -339,7 +339,7 @@
             // 
             // tbSedereDurata
             // 
-            this.tbSedereDurata.Location = new System.Drawing.Point(740, 364);
+            this.tbSedereDurata.Location = new System.Drawing.Point(740, 400);
             this.tbSedereDurata.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.tbSedereDurata.Name = "tbSedereDurata";
             this.tbSedereDurata.Size = new System.Drawing.Size(112, 32);
@@ -348,7 +348,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(618, 428);
+            this.label17.Location = new System.Drawing.Point(618, 464);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(81, 31);
             this.label17.TabIndex = 35;
@@ -356,7 +356,7 @@
             // 
             // tbCostTotal
             // 
-            this.tbCostTotal.Location = new System.Drawing.Point(740, 425);
+            this.tbCostTotal.Location = new System.Drawing.Point(740, 461);
             this.tbCostTotal.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.tbCostTotal.Name = "tbCostTotal";
             this.tbCostTotal.Size = new System.Drawing.Size(112, 32);
@@ -366,7 +366,7 @@
             // 
             this.afisareRezervari.BackColor = System.Drawing.Color.DarkRed;
             this.afisareRezervari.ForeColor = System.Drawing.Color.OldLace;
-            this.afisareRezervari.Location = new System.Drawing.Point(322, 415);
+            this.afisareRezervari.Location = new System.Drawing.Point(52, 400);
             this.afisareRezervari.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.afisareRezervari.Name = "afisareRezervari";
             this.afisareRezervari.Size = new System.Drawing.Size(211, 95);
@@ -385,6 +385,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(980, 28);
             this.menuStrip1.TabIndex = 38;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // fisierToolStripMenuItem
             // 
@@ -398,7 +399,7 @@
             // iesireToolStripMenuItem
             // 
             this.iesireToolStripMenuItem.Name = "iesireToolStripMenuItem";
-            this.iesireToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.iesireToolStripMenuItem.Size = new System.Drawing.Size(127, 26);
             this.iesireToolStripMenuItem.Text = "Iesire";
             this.iesireToolStripMenuItem.Click += new System.EventHandler(this.iesireToolStripMenuItem_Click);
             // 

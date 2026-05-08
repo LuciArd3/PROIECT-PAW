@@ -76,12 +76,16 @@ namespace PROIECT_PAW
             }
             FileStream fs = new FileStream("rezervari.dat", FileMode.Open, FileAccess.Read);
             BinaryFormatter bf = new BinaryFormatter();
-            listaRezervari = (List<Rezervare>)bf.Deserialize(fs);
+            List<Rezervare> listaDeserializata = (List<Rezervare>)bf.Deserialize(fs);
             fs.Close();
+
+            listaRezervari.Clear();
+            listaRezervari.AddRange(listaDeserializata);
+
             listView1.Items.Clear();
             foreach (Rezervare r in listaRezervari)
                 adaugaInListView(r);
-            MessageBox.Show("Restaurat! Total: " + listaRezervari.Count + " rezervari.", "Deserializare",
+            MessageBox.Show("Au fost restaurate : " + listaRezervari.Count + " rezervari.", "Deserializare",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
