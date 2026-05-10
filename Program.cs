@@ -9,6 +9,7 @@ namespace PROIECT_PAW
 {
     internal class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
 
