@@ -13,13 +13,12 @@ namespace PROIECT_PAW
     {
         List<Rezervare> listaRezervari;
 
-        // ── print ────────────────────────────────────────────────────
         private int _printIndex = 0;
         private PrintDocument _printDoc;
 
-        // ── drag & drop ──────────────────────────────────────────────
-        private ListViewItem _dragItem = null;   // itemul tras
-        private int _dropLineIndex = -1;     // unde va fi plasat
+
+        private ListViewItem _dragItem = null;   
+        private int _dropLineIndex = -1;     
         private Pen _dropLinePen = new Pen(Color.DarkGoldenrod, 2);
 
         public Form2(List<Rezervare> lista)
@@ -31,10 +30,6 @@ namespace PROIECT_PAW
             _printDoc.DocumentName = "Raport Rezervari Hotel";
             _printDoc.PrintPage += PrintDoc_PrintPage;
         }
-
-        // ════════════════════════════════════════════════════════════
-        //  LISTVIEW helpers
-        // ════════════════════════════════════════════════════════════
 
         private void adaugaInListView(Rezervare r)
         {
@@ -63,18 +58,12 @@ namespace PROIECT_PAW
             }
         }
 
-        // ════════════════════════════════════════════════════════════
-        //  DRAG & DROP  –  reordonare rezervari prin tragere
-        // ════════════════════════════════════════════════════════════
-
-        /// <summary>Porneşte drag-ul când utilizatorul trage un item.</summary>
         private void listView1_ItemDrag(object sender, ItemDragEventArgs e)
         {
             _dragItem = (ListViewItem)e.Item;
             listView1.DoDragDrop(_dragItem, DragDropEffects.Move);
         }
 
-        /// <summary>Acceptă operaţia când cursorul intră în ListView.</summary>
         private void listView1_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(ListViewItem)))
@@ -83,10 +72,6 @@ namespace PROIECT_PAW
                 e.Effect = DragDropEffects.None;
         }
 
-        /// <summary>
-        /// Urmăreşte poziţia cursorului şi desenează linia indicatoare
-        /// care arată unde va fi inserat itemul.
-        /// </summary>
         private void listView1_DragOver(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(typeof(ListViewItem)))
@@ -104,11 +89,11 @@ namespace PROIECT_PAW
             if (newIndex != _dropLineIndex)
             {
                 _dropLineIndex = newIndex;
-                listView1.Invalidate();   // redesenează pentru linia indicatoare
+                listView1.Invalidate();
             }
         }
 
-        /// <summary>Desenează linia galbenă indicatoare de drop.</summary>
+   
         private void listView1_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
             e.DrawDefault = true;
@@ -116,17 +101,13 @@ namespace PROIECT_PAW
             if (e.ItemIndex == _dropLineIndex && _dragItem != null
                 && e.ItemIndex != _dragItem.Index)
             {
-                // linie deasupra itemului ţintă
+      
                 int y = e.Bounds.Top;
                 e.Graphics.DrawLine(_dropLinePen,
                     e.Bounds.Left, y, e.Bounds.Right, y);
             }
         }
 
-        /// <summary>
-        /// Execută mutarea: mută itemul în ListView ŞI
-        /// sincronizează listaRezervari cu noua ordine.
-        /// </summary>
         private void listView1_DragDrop(object sender, DragEventArgs e)
         {
             if (_dragItem == null) return;
@@ -141,7 +122,7 @@ namespace PROIECT_PAW
 
             if (fromIdx == toIdx) { _dragItem = null; _dropLineIndex = -1; return; }
 
-            // ── muta in ListView ──────────────────────────────────────
+ 
             listView1.BeginUpdate();
             ListViewItem clone = (ListViewItem)_dragItem.Clone();
             listView1.Items.RemoveAt(fromIdx);
@@ -149,18 +130,15 @@ namespace PROIECT_PAW
             clone.Selected = true;
             listView1.EndUpdate();
 
-            // ── sincronizeaza lista de rezervari ──────────────────────
             Rezervare rMutata = listaRezervari[fromIdx];
             listaRezervari.RemoveAt(fromIdx);
             listaRezervari.Insert(toIdx, rMutata);
 
-            // ── curata starea drag ────────────────────────────────────
             _dragItem = null;
             _dropLineIndex = -1;
             listView1.Invalidate();
         }
 
-        /// <summary>Resetează indicatorul dacă drag-ul e anulat.</summary>
         private void listView1_DragLeave(object sender, EventArgs e)
         {
             _dragItem = null;
@@ -168,9 +146,6 @@ namespace PROIECT_PAW
             listView1.Invalidate();
         }
 
-        // ════════════════════════════════════════════════════════════
-        //  PRINT LOGIC
-        // ════════════════════════════════════════════════════════════
 
         private void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
         {
@@ -267,16 +242,13 @@ namespace PROIECT_PAW
             brushHeader.Dispose(); brushAlt.Dispose();
         }
 
-        // helper zip pentru .NET 4.7.2
         private IEnumerable<(T1, T2)> Zip<T1, T2>(T1[] a, T2[] b)
         {
             for (int i = 0; i < Math.Min(a.Length, b.Length); i++)
                 yield return (a[i], b[i]);
         }
 
-        // ════════════════════════════════════════════════════════════
-        //  BUTOANE
-        // ════════════════════════════════════════════════════════════
+     
 
         private void btnPrintPreview_Click(object sender, EventArgs e)
         {
