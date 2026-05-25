@@ -12,6 +12,7 @@ namespace PROIECT_PAW
     public partial class Form2 : Form
     {
         List<Rezervare> listaRezervari;
+        private readonly DatabaseHelper db;
 
         private int _printIndex = 0;
         private PrintDocument _printDoc;
@@ -21,10 +22,11 @@ namespace PROIECT_PAW
         private int _dropLineIndex = -1;     
         private Pen _dropLinePen = new Pen(Color.DarkGoldenrod, 2);
 
-        public Form2(List<Rezervare> lista)
+        public Form2(List<Rezervare> lista , DatabaseHelper db)
         {
             InitializeComponent();
             listaRezervari = lista;
+            this.db = db;
 
             _printDoc = new PrintDocument();
             _printDoc.DocumentName = "Raport Rezervari Hotel";
@@ -54,6 +56,7 @@ namespace PROIECT_PAW
                     int id = Convert.ToInt32(itm.SubItems[0].Text);
                     listaRezervari.RemoveAll(r => r.Id == id);
                     itm.Remove();
+                    db.Sterge(id);
                 }
             }
         }

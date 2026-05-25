@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SQLitePCL;
 
 namespace PROIECT_PAW
 {
@@ -12,7 +13,6 @@ namespace PROIECT_PAW
         [STAThread]
         static void Main(string[] args)
         {
-
             Application.EnableVisualStyles(); 
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

@@ -11,10 +11,15 @@ namespace PROIECT_PAW
         private const string FISIER_DATE = "rezervari.dat";
         List<Rezervare> listaRezervari = new List<Rezervare>();
 
+        private readonly DatabaseHelper db = new DatabaseHelper();
+
         public Form1()
         {
             InitializeComponent();
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
+
+            db.CreeazaTabel();
+            listaRezervari = db.GetToate();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -65,16 +70,16 @@ namespace PROIECT_PAW
                 errorProvider1.Clear();
                 try
                 {
-                    string   nume       = tbNumeClient.Text;
-                    char     sex        = Convert.ToChar(cbSex.Text);
-                    string   telefon    = tbTelefon.Text;
-                    Client   client     = new Client(nume, sex, telefon);
+                    string  nume       = tbNumeClient.Text;
+                    char  sex        = Convert.ToChar(cbSex.Text);
+                    string telefon    = tbTelefon.Text;
+                    Client client     = new Client(nume, sex, telefon);
 
-                    int      numar      = Convert.ToInt32(tbNumarCamera.Text);
-                    string   tip        = cbTipCamera.Text;
-                    float    pretNoapte = (float)Convert.ToDouble(tbPretCamera.Text);
-                    int      etaj       = Convert.ToInt32(cbEtajCamera.Text);
-                    Camera   camera     = new Camera(numar, tip, pretNoapte, etaj);
+                    int   numar = Convert.ToInt32(tbNumarCamera.Text);
+                    string tip = cbTipCamera.Text;
+                    float pretNoapte = (float)Convert.ToDouble(tbPretCamera.Text);
+                    int etaj = Convert.ToInt32(cbEtajCamera.Text);
+                    Camera camera  = new Camera(numar, tip, pretNoapte, etaj);
 
                     int      id         = Convert.ToInt32(tbIdRezervare.Text);
                     DateTime checkIn    = dateTimePickerCheckIn.Value;
@@ -86,12 +91,13 @@ namespace PROIECT_PAW
 
                     Rezervare rezervare = new Rezervare(id, client, camera, checkIn, checkOut, status);
                     tbSedereDurata.Text = rezervare.noptiSedere().ToString();
-                    tbCostTotal.Text    = rezervare.costTotal().ToString("F2");
+                    tbCostTotal.Text = rezervare.costTotal().ToString("F2");
 
                     MessageBox.Show(rezervare.ToString(), "Rezervare adăugată",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     listaRezervari.Add(rezervare);
+                    db.Adauga(rezervare);
                 }
                 catch (Exception ex)
                 {
@@ -107,7 +113,7 @@ namespace PROIECT_PAW
 
         private void DeschideForm2()
         {
-            new Form2(listaRezervari).Show();
+            new Form2(listaRezervari , db).Show();
         }
 
         private void meniuAfisareGrafice_Click(object sender, EventArgs e)
@@ -179,6 +185,7 @@ namespace PROIECT_PAW
                 == DialogResult.Yes)
             {
                 listaRezervari.Clear();
+                db.StergeToate();
                 MessageBox.Show("Toate rezervările au fost șterse.", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -215,6 +222,11 @@ namespace PROIECT_PAW
             dateTimePickerCheckOut.Value = DateTime.Now;
             tbSedereDurata.Clear();
             tbCostTotal.Clear();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
