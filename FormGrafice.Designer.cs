@@ -15,9 +15,9 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPie = new System.Windows.Forms.TabPage();
             this.chartTipuri = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -56,14 +56,14 @@
             this.tabPie.Name = "tabPie";
             this.tabPie.Size = new System.Drawing.Size(952, 589);
             this.tabPie.TabIndex = 0;
-            this.tabPie.Text = "  Rezervări / Tip cameră  ";
+            this.tabPie.Text = "  Rezervari - Tip Camera";
             // 
             // chartTipuri
             // 
             this.chartTipuri.BackColor = System.Drawing.Color.Black;
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            chartArea1.Name = "ChartArea1";
-            this.chartTipuri.ChartAreas.Add(chartArea1);
+            chartArea4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            chartArea4.Name = "ChartArea1";
+            this.chartTipuri.ChartAreas.Add(chartArea4);
             this.chartTipuri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartTipuri.Location = new System.Drawing.Point(0, 0);
             this.chartTipuri.Name = "chartTipuri";
@@ -80,19 +80,20 @@
             this.tabBar1.Name = "tabBar1";
             this.tabBar1.Size = new System.Drawing.Size(952, 589);
             this.tabBar1.TabIndex = 1;
-            this.tabBar1.Text = "  Venituri / Tip cameră  ";
+            this.tabBar1.Text = "  Venituri - Tip Camera  ";
             // 
             // chartVenituri
             // 
             this.chartVenituri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            chartArea2.Name = "ChartArea1";
-            this.chartVenituri.ChartAreas.Add(chartArea2);
+            chartArea5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            chartArea5.Name = "ChartArea1";
+            this.chartVenituri.ChartAreas.Add(chartArea5);
             this.chartVenituri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartVenituri.Location = new System.Drawing.Point(0, 0);
             this.chartVenituri.Name = "chartVenituri";
             this.chartVenituri.Size = new System.Drawing.Size(952, 589);
             this.chartVenituri.TabIndex = 0;
+            this.chartVenituri.Click += new System.EventHandler(this.chartVenituri_Click);
             // 
             // tabBar2
             // 
@@ -102,14 +103,14 @@
             this.tabBar2.Name = "tabBar2";
             this.tabBar2.Size = new System.Drawing.Size(952, 589);
             this.tabBar2.TabIndex = 2;
-            this.tabBar2.Text = "  Rezervări / Status  ";
+            this.tabBar2.Text = "  Rezervari - Status  ";
             // 
             // chartStatus
             // 
             this.chartStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            chartArea3.Name = "ChartArea1";
-            this.chartStatus.ChartAreas.Add(chartArea3);
+            chartArea6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            chartArea6.Name = "ChartArea1";
+            this.chartStatus.ChartAreas.Add(chartArea6);
             this.chartStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartStatus.Location = new System.Drawing.Point(0, 0);
             this.chartStatus.Name = "chartStatus";
@@ -141,7 +142,7 @@
             this.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "FormGrafice";
-            this.Text = "Statistici rezervări";
+            this.Text = "Statistici rezervari";
             this.tabControl1.ResumeLayout(false);
             this.tabPie.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartTipuri)).EndInit();

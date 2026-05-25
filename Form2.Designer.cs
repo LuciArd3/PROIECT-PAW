@@ -147,7 +147,7 @@
             this.btnAfisareLista.Name = "btnAfisareLista";
             this.btnAfisareLista.Size = new System.Drawing.Size(160, 65);
             this.btnAfisareLista.TabIndex = 1;
-            this.btnAfisareLista.Text = "Afișare";
+            this.btnAfisareLista.Text = "Afisare";
             this.btnAfisareLista.UseVisualStyleBackColor = false;
             this.btnAfisareLista.Click += new System.EventHandler(this.btnAfisareLista_Click);
             // 
@@ -159,7 +159,7 @@
             this.btnSterge.Name = "btnSterge";
             this.btnSterge.Size = new System.Drawing.Size(160, 65);
             this.btnSterge.TabIndex = 2;
-            this.btnSterge.Text = "Șterge selectate";
+            this.btnSterge.Text = "Sterge selectate";
             this.btnSterge.UseVisualStyleBackColor = false;
             this.btnSterge.Click += new System.EventHandler(this.btnSterge_Click);
             // 
@@ -196,9 +196,9 @@
             this.lblDragHint.ForeColor = System.Drawing.Color.LightGray;
             this.lblDragHint.Location = new System.Drawing.Point(14, 438);
             this.lblDragHint.Name = "lblDragHint";
-            this.lblDragHint.Size = new System.Drawing.Size(325, 19);
+            this.lblDragHint.Size = new System.Drawing.Size(321, 19);
             this.lblDragHint.TabIndex = 5;
-            this.lblDragHint.Text = "!Trage un rand pentru a ii schimba ordinea în lista";
+            this.lblDragHint.Text = "Trage un rand pentru a ii schimba ordinea în lista";
             // 
             // Form2
             // 
@@ -214,7 +214,7 @@
             this.Controls.Add(this.listView1);
             this.Font = new System.Drawing.Font("Microsoft Uighur", 13.8F);
             this.Name = "Form2";
-            this.Text = "Lista Rezervări";
+            this.Text = "Lista Rezervari";
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -22,7 +22,7 @@ namespace PROIECT_PAW
         {
             if (listaRezervari == null || listaRezervari.Count == 0)
             {
-                MessageBox.Show("Nu există rezervări de afișat!", "Info",
+                MessageBox.Show("Nu exista rezervari de afisat!", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -85,7 +85,7 @@ namespace PROIECT_PAW
 
             chartVenituri.Series.Clear();
             chartVenituri.Titles.Clear();
-            chartVenituri.ChartAreas[0].AxisX.Title = "Tip cameră";
+            chartVenituri.ChartAreas[0].AxisX.Title = "Tip camera";
             chartVenituri.ChartAreas[0].AxisY.Title = "Venit total (RON)";
             chartVenituri.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
             chartVenituri.ChartAreas[0].BackColor = Color.FromArgb(30, 30, 30);
@@ -95,7 +95,7 @@ namespace PROIECT_PAW
             chartVenituri.ChartAreas[0].AxisY.TitleForeColor = Color.DarkGoldenrod;
 
             chartVenituri.Titles.Add(new Title(
-                "Venit total per tip cameră",
+                "Venit total pe tip camera",
                 Docking.Top,
                 new Font("Segoe UI", 12, FontStyle.Bold),
                 Color.DarkGoldenrod));
@@ -124,7 +124,7 @@ namespace PROIECT_PAW
             chartStatus.Series.Clear();
             chartStatus.Titles.Clear();
             chartStatus.ChartAreas[0].AxisX.Title = "Status";
-            chartStatus.ChartAreas[0].AxisY.Title = "Număr rezervări";
+            chartStatus.ChartAreas[0].AxisY.Title = "Numar rezervari";
             chartStatus.ChartAreas[0].BackColor = Color.FromArgb(30, 30, 30);
             chartStatus.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.DarkGoldenrod;
             chartStatus.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.DarkGoldenrod;
@@ -133,7 +133,7 @@ namespace PROIECT_PAW
             chartStatus.ChartAreas[0].AxisY.Interval = 1;
 
             chartStatus.Titles.Add(new Title(
-                "Rezervări pe status",
+                "Rezervari pe status",
                 Docking.Top,
                 new Font("Segoe UI", 12, FontStyle.Bold),
                 Color.DarkGoldenrod));
@@ -157,6 +157,11 @@ namespace PROIECT_PAW
         private void btnReincarca_Click(object sender, EventArgs e) => IncarcaGrafice();
 
         private void chartTipuri_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chartVenituri_Click(object sender, EventArgs e)
         {
 
         }
