@@ -120,6 +120,39 @@ namespace PROIECT_PAW
                 }
             }
         }
+
+        public void Actualizeaza(Rezervare r)
+        {
+            using (var con = new OleDbConnection(ConnectionString))
+            {
+                con.Open();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = con;
+                cmd.Transaction = con.BeginTransaction();
+                try
+                {
+                    cmd.CommandText = @"UPDATE Rezervari SET
+                NumeClient=?, Sex=?, Telefon=?,
+                NumarCamera=?, TipCamera=?, PretNoapte=?, Etaj=?,
+                CheckIn=?, CheckOut=?, Status=?
+                WHERE Id=?";
+                    cmd.Parameters.Add("NumeClient", OleDbType.VarChar).Value = r.Client.Nume;
+                    cmd.Parameters.Add("Sex", OleDbType.VarChar).Value = r.Client.Sex.ToString();
+                    cmd.Parameters.Add("Telefon", OleDbType.VarChar).Value = r.Client.NrTelefon;
+                    cmd.Parameters.Add("NumarCamera", OleDbType.Integer).Value = r.Camera.Numar;
+                    cmd.Parameters.Add("TipCamera", OleDbType.VarChar).Value = r.Camera.Tip;
+                    cmd.Parameters.Add("PretNoapte", OleDbType.Double).Value = r.Camera.PretNoapte;
+                    cmd.Parameters.Add("Etaj", OleDbType.Integer).Value = r.Camera.Etaj;
+                    cmd.Parameters.Add("CheckIn", OleDbType.VarChar).Value = r.DataCheckIn.ToString("yyyy-MM-dd");
+                    cmd.Parameters.Add("CheckOut", OleDbType.VarChar).Value = r.DataCheckOut.ToString("yyyy-MM-dd");
+                    cmd.Parameters.Add("Status", OleDbType.VarChar).Value = r.Status;
+                    cmd.Parameters.Add("Id", OleDbType.Integer).Value = r.Id;
+                    cmd.ExecuteNonQuery();
+                    cmd.Transaction.Commit();
+                }
+                catch { cmd.Transaction.Rollback(); throw; }
+            }
+        }
         public void Sterge(int id)
         {
             using (var con = new OleDbConnection(ConnectionString))

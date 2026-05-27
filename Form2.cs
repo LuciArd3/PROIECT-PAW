@@ -34,6 +34,7 @@ namespace PROIECT_PAW
 
             foreach (Rezervare r in listaRezervari)
                 adaugaInListView(r);
+            listView1.DoubleClick += new EventHandler(listView1_DoubleClick);
         }
 
         private void adaugaInListView(Rezervare r)
@@ -321,6 +322,34 @@ namespace PROIECT_PAW
             foreach (Rezervare r in listaRezervari) adaugaInListView(r);
             MessageBox.Show("Restaurat! Total: " + listaRezervari.Count + " rezervari.",
                 "Deserializare", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0) return;
+
+            int id = Convert.ToInt32(listView1.SelectedItems[0].SubItems[0].Text);
+            Rezervare r = listaRezervari.Find(x => x.Id == id);
+            if (r == null) return;
+
+            using (var dlg = new FormEditRezervare(r))
+            {
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    Rezervare editata = dlg.RezervareEditata;
+                    int idx = listaRezervari.FindIndex(x => x.Id == editata.Id);
+                    listaRezervari[idx] = editata;
+                    db.Actualizeaza(editata);
+
+                    // refresh ListView
+                    listView1.Items.Clear();
+                    foreach (Rezervare rez in listaRezervari)
+                        adaugaInListView(rez);
+
+                    MessageBox.Show("Rezervarea a fost actualizata!", "Succes",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void btnAfisareLista_Click(object sender, EventArgs e)

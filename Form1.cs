@@ -138,7 +138,7 @@ namespace PROIECT_PAW
         {
             if (!File.Exists(FISIER_DATE))
             {
-                MessageBox.Show("Nu există fișier de date salvat!", "Restaurare",
+                MessageBox.Show("Nu există fisier de date salvat!", "Restaurare",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -161,8 +161,8 @@ namespace PROIECT_PAW
 
         private void meniuIesire_Click(object sender, EventArgs e)
         {
-            var dr = MessageBox.Show("Doriti să salvati datele inainte de iesire?",
-                "Ieșire", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            var dr = MessageBox.Show("Doriti sa salvati datele inainte de iesire?",
+                "Iesire", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes) SalveazaDate();
             if (dr != DialogResult.Cancel) Application.Exit();
         }
@@ -171,7 +171,7 @@ namespace PROIECT_PAW
         {
             if (listaRezervari.Count == 0)
             {
-                MessageBox.Show("Nu există rezervări de șters.", "Info",
+                MessageBox.Show("Nu exista rezervari de sters.", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -191,14 +191,14 @@ namespace PROIECT_PAW
             MessageBox.Show(
                 "Aplicatie de gestiune rezervari hotel\n\n" +
                 "Taste rapide:\n" +
-                "  Enter    – Adauga rezervare\n" +
-                "  Escape   – Goleste campurile\n" +
-                "  F1       – Lista rezervarilor\n" +
-                "  Ctrl+S   – Salvare\n" +
-                "  Ctrl+R   – Restaurare\n" +
-                "  Ctrl+N   – Adauga rezervare\n" +
-                "  Ctrl+L   – Afisare rezervari\n" +
-                "  Ctrl+G   – Grafice statistici",
+                "  Enter -> Adauga rezervare\n" +
+                "  Esc -> Goleste campurile\n" +
+                "  F1 -> Lista rezervarilor\n" +
+                "  Ctrl+S -> Salvare\n" +
+                "  Ctrl+R -> Restaurare\n" +
+                "  Ctrl+N -> Adauga rezervare\n" +
+                "  Ctrl+L -> Afisare rezervari\n" +
+                "  Ctrl+G -> Grafice statistici",
                 "Despre aplicatie", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

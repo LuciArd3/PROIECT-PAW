@@ -35,6 +35,13 @@ namespace PROIECT_PAW
             errorProvider1.Clear();
             return true;
         }
+        public void SetDate(string nume, char sex, string telefon)
+        {
+            tbNume.Text = nume;
+            cbSex.Text = sex.ToString();
+            tbTelefon.Text = telefon;
+            errorProvider1.Clear();
+        }
 
         public void Goleste()
         {
