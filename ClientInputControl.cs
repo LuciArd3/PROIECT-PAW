@@ -49,5 +49,10 @@ namespace PROIECT_PAW
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
+
+        private void lblTitlu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

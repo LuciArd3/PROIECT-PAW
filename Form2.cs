@@ -31,6 +31,9 @@ namespace PROIECT_PAW
             _printDoc = new PrintDocument();
             _printDoc.DocumentName = "Raport Rezervari Hotel";
             _printDoc.PrintPage += PrintDoc_PrintPage;
+
+            foreach (Rezervare r in listaRezervari)
+                adaugaInListView(r);
         }
 
         private void adaugaInListView(Rezervare r)
@@ -166,14 +169,14 @@ namespace PROIECT_PAW
 
             if (_printIndex == 0)
             {
-                string titlu = "RAPORT REZERVĂRI HOTEL";
+                string titlu = "RAPORT REZERVARI HOTEL";
                 SizeF sz = g.MeasureString(titlu, fontTitlu);
                 g.DrawString(titlu, fontTitlu, Brushes.Black,
                     x + (w - sz.Width) / 2, y);
                 y += (int)sz.Height + 4;
 
                 string sub = $"Generat la: {DateTime.Now:dd/MM/yyyy HH:mm}   |   " +
-                             $"Total rezervări: {listaRezervari.Count}";
+                             $"Total rezervari: {listaRezervari.Count}";
                 SizeF szS = g.MeasureString(sub, fontSubtitlu);
                 g.DrawString(sub, fontSubtitlu, Brushes.Gray,
                     x + (w - szS.Width) / 2, y);
@@ -183,8 +186,8 @@ namespace PROIECT_PAW
             }
 
             int[] colW = { 35, 130, 55, 80, 75, 75, 45, 75, 90 };
-            string[] hdrs = { "ID","Client","Cameră","Tip",
-                               "Check-In","Check-Out","Nopți","Cost (RON)","Status" };
+            string[] hdrs = { "ID","Client","Camera","Tip",
+                               "Check-In","Check-Out","Nopti","Cost (RON)","Status" };
             int rowH = 18;
 
             g.FillRectangle(brushHeader, x, y, w, rowH);
@@ -233,7 +236,7 @@ namespace PROIECT_PAW
                 foreach (var r in listaRezervari) total += r.costTotal();
                 g.DrawString($"TOTAL GENERAL:   {total:F2} RON   ({listaRezervari.Count} rezervări)",
                     fontTotal, Brushes.DarkGoldenrod, x, y);
-                string footer = "Hotel Management System  •  Document generat automat";
+                string footer = "Document generat automat";
                 SizeF szF = g.MeasureString(footer, fontSubtitlu);
                 g.DrawString(footer, fontSubtitlu, Brushes.Gray,
                     x + (w - szF.Width) / 2, margin.Bottom - 20);
@@ -257,7 +260,7 @@ namespace PROIECT_PAW
         {
             if (listaRezervari.Count == 0)
             {
-                MessageBox.Show("Nu există rezervări de printat!", "Info",
+                MessageBox.Show("Nu exista rezervari de printat!", "Info",
                 MessageBoxButtons.OK, MessageBoxIcon.Information); return;
             }
             _printIndex = 0;
@@ -265,7 +268,7 @@ namespace PROIECT_PAW
             {
                 ppd.Document = _printDoc;
                 ppd.Width = 1000; ppd.Height = 750;
-                ppd.Text = "Previzualizare Raport Rezervări";
+                ppd.Text = "Previzualizare Raport Rezervari";
                 ppd.ShowDialog();
             }
         }
@@ -274,7 +277,7 @@ namespace PROIECT_PAW
         {
             if (listaRezervari.Count == 0)
             {
-                MessageBox.Show("Nu există rezervări de printat!", "Info",
+                MessageBox.Show("Nu exista rezervari de printat!", "Info",
                 MessageBoxButtons.OK, MessageBoxIcon.Information); return;
             }
             using (var pd = new PrintDialog())
@@ -330,7 +333,10 @@ namespace PROIECT_PAW
             }
             foreach (Rezervare r in listaRezervari) adaugaInListView(r);
         }
-
+        private void listView1_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            e.DrawDefault = true;
+        }
         private void btnSterge_Click(object sender, EventArgs e) => stergeSelectate();
     }
 }

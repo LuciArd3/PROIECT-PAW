@@ -92,7 +92,7 @@ namespace PROIECT_PAW
                 tbSedereDurata.Text = rezervare.noptiSedere().ToString();
                 tbCostTotal.Text = rezervare.costTotal().ToString("F2");
 
-                MessageBox.Show(rezervare.ToString(), "Rezervare adăugată",
+                MessageBox.Show(rezervare.ToString(), "Rezervare adaugata",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 listaRezervari.Add(rezervare);
@@ -124,7 +124,7 @@ namespace PROIECT_PAW
             {
                 using (FileStream fs = new FileStream(FISIER_DATE, FileMode.Create, FileAccess.Write))
                     new BinaryFormatter().Serialize(fs, listaRezervari);
-                MessageBox.Show("Date salvate! (" + listaRezervari.Count + " rezervări)",
+                MessageBox.Show("Date salvate! (" + listaRezervari.Count + " rezervari)",
                     "Salvare", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -146,7 +146,7 @@ namespace PROIECT_PAW
             {
                 using (FileStream fs = new FileStream(FISIER_DATE, FileMode.Open, FileAccess.Read))
                     listaRezervari = (List<Rezervare>)new BinaryFormatter().Deserialize(fs);
-                MessageBox.Show("Date restaurate! Total: " + listaRezervari.Count + " rezervări.",
+                MessageBox.Show("Date restaurate! Total: " + listaRezervari.Count + " rezervari.",
                     "Restaurare", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -161,7 +161,7 @@ namespace PROIECT_PAW
 
         private void meniuIesire_Click(object sender, EventArgs e)
         {
-            var dr = MessageBox.Show("Doriți să salvați datele înainte de ieșire?",
+            var dr = MessageBox.Show("Doriti să salvati datele inainte de iesire?",
                 "Ieșire", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes) SalveazaDate();
             if (dr != DialogResult.Cancel) Application.Exit();
@@ -175,13 +175,13 @@ namespace PROIECT_PAW
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (MessageBox.Show("Ștergi toate cele " + listaRezervari.Count + " rezervări?",
+            if (MessageBox.Show("Stergi toate cele " + listaRezervari.Count + " rezervari?",
                     "Confirmare", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
                 == DialogResult.Yes)
             {
                 listaRezervari.Clear();
                 db.StergeToate();
-                MessageBox.Show("Toate rezervările au fost șterse.", "Info",
+                MessageBox.Show("Toate rezervarile au fost sterse.", "Info",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -218,5 +218,15 @@ namespace PROIECT_PAW
         }
 
         private void Form1_Load(object sender, EventArgs e) { }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
     }
 }

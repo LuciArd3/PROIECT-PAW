@@ -113,7 +113,7 @@
             // 
             this.meniuIesire.Name = "meniuIesire";
             this.meniuIesire.Size = new System.Drawing.Size(273, 26);
-            this.meniuIesire.Text = "Ie&șire";
+            this.meniuIesire.Text = "Ie&sire";
             this.meniuIesire.Click += new System.EventHandler(this.meniuIesire_Click);
             // 
             // meniuRezervari
@@ -183,7 +183,7 @@
             // 
             this.meniuDespre.Name = "meniuDespre";
             this.meniuDespre.Size = new System.Drawing.Size(224, 26);
-            this.meniuDespre.Text = "&Despre aplicație";
+            this.meniuDespre.Text = "&Despre aplicatie";
             this.meniuDespre.Click += new System.EventHandler(this.meniuDespre_Click);
             // 
             // btnAdaugaRezervare
@@ -202,11 +202,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Uighur", 18F);
-            this.label5.Location = new System.Drawing.Point(390, 45);
+            this.label5.Location = new System.Drawing.Point(409, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(128, 40);
             this.label5.TabIndex = 16;
             this.label5.Text = "Date Camera";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label10
             // 
@@ -248,7 +249,7 @@
             // 
             this.tbNumarCamera.Location = new System.Drawing.Point(440, 107);
             this.tbNumarCamera.Name = "tbNumarCamera";
-            this.tbNumarCamera.Size = new System.Drawing.Size(110, 32);
+            this.tbNumarCamera.Size = new System.Drawing.Size(120, 32);
             this.tbNumarCamera.TabIndex = 4;
             this.tbNumarCamera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCifre_KeyPress);
             // 
@@ -266,9 +267,9 @@
             // 
             // tbPretCamera
             // 
-            this.tbPretCamera.Location = new System.Drawing.Point(460, 219);
+            this.tbPretCamera.Location = new System.Drawing.Point(440, 219);
             this.tbPretCamera.Name = "tbPretCamera";
-            this.tbPretCamera.Size = new System.Drawing.Size(100, 32);
+            this.tbPretCamera.Size = new System.Drawing.Size(120, 32);
             this.tbPretCamera.TabIndex = 6;
             this.tbPretCamera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPret_KeyPress);
             // 
@@ -289,7 +290,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Uighur", 18F);
-            this.label12.Location = new System.Drawing.Point(660, 45);
+            this.label12.Location = new System.Drawing.Point(672, 64);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(161, 40);
             this.label12.TabIndex = 23;
@@ -335,7 +336,7 @@
             // 
             this.tbIdRezervare.Location = new System.Drawing.Point(700, 107);
             this.tbIdRezervare.Name = "tbIdRezervare";
-            this.tbIdRezervare.Size = new System.Drawing.Size(110, 32);
+            this.tbIdRezervare.Size = new System.Drawing.Size(150, 32);
             this.tbIdRezervare.TabIndex = 8;
             this.tbIdRezervare.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCifre_KeyPress);
             // 
@@ -367,7 +368,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(600, 330);
+            this.label16.Location = new System.Drawing.Point(673, 354);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(105, 31);
             this.label16.TabIndex = 33;
@@ -375,7 +376,7 @@
             // 
             // tbSedereDurata
             // 
-            this.tbSedereDurata.Location = new System.Drawing.Point(775, 327);
+            this.tbSedereDurata.Location = new System.Drawing.Point(787, 351);
             this.tbSedereDurata.Name = "tbSedereDurata";
             this.tbSedereDurata.ReadOnly = true;
             this.tbSedereDurata.Size = new System.Drawing.Size(110, 32);
@@ -384,7 +385,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(600, 380);
+            this.label17.Location = new System.Drawing.Point(673, 403);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(81, 31);
             this.label17.TabIndex = 35;
@@ -392,7 +393,7 @@
             // 
             // tbCostTotal
             // 
-            this.tbCostTotal.Location = new System.Drawing.Point(775, 377);
+            this.tbCostTotal.Location = new System.Drawing.Point(787, 400);
             this.tbCostTotal.Name = "tbCostTotal";
             this.tbCostTotal.ReadOnly = true;
             this.tbCostTotal.Size = new System.Drawing.Size(110, 32);
@@ -431,6 +432,7 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // Form1
             // 
